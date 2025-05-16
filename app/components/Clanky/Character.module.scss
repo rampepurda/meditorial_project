@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+@import "../../styles/breakpoints";
+@import "../../styles/spacing";
+
+.cover {
+  display: grid;
+  grid-template-columns: repeat(3, 31%);
+  align-content: center;
+  justify-content: left;
+  gap: 1rem;
+  border-radius: 0.6rem;
+  max-width: 100%;
+  margin: $spacer-3 0;
+
+  label {
+    color: $grayLight;
+  }
+
+  h3 {
+    margin-top: $spacer-2;
+  }
+}
+
+.link {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@media #{$screen-md} {
+  .cover {
+    grid-template-columns: repeat(2, 49%);
+  }
+}
+
+@media #{$screen-sm} {
+  .cover {
+    grid-template-columns: repeat(1, 99%);
+  }
+}
+
+

@@ -1,0 +1,291 @@
+@import "mixins";
+@import "spacing";
+@import "variables";
+@import "functions";
+@import "breakpoints";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: $blackLight;
+  font-size: 14.5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  min-height: 100vh;
+  margin: $spacer-11 $spacer-4;
+}
+
+h1 {
+  @include fontSize(2.4rem, 500);
+  margin: 0;
+  color: $blackLighter;
+}
+
+h2 {
+  @include fontSize(2.1rem, bold);
+  margin: $spacer-5 0 $spacer-4 0;
+  color: $blackLighter;
+}
+
+h3 {
+  @include fontSize(1.6rem, 500);
+  margin: $spacer-4 0;
+}
+
+h4 {
+  @include fontSize(1.3rem, 500);
+  margin: $spacer-2 0;
+}
+
+h5 {
+  @include fontSize(1.2rem, 500);
+  margin: $spacer-1 0;
+}
+
+p {
+  margin: $spacer-2 0;
+  font-size: 1.2rem;
+}
+
+ul {
+  margin: $spacer-2 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: .7rem 1rem;
+    font-size: 1.3rem;
+
+    ul {
+      margin: 0;
+    }
+  }
+
+  &.hasTypeDisc,
+  &.hasTypeDecimal {
+    margin-left: 1rem;
+    list-style: disc;
+
+    li {
+      padding-left: 0;
+    }
+  }
+
+  &.hasTypeDecimal {
+    list-style: decimal;
+  }
+
+  &.hasBorderBottom {
+    li {
+      border-bottom: 1px solid $grayLighter;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &.isDisplayInline {
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+form {
+  margin: $spacer-5 0;
+}
+
+hr {
+  border: 0;
+  background-color: transparentize($gray, .8);
+  height: 1px;
+  margin: .7rem 0;
+}
+
+a {
+  @include fontSize(1.25rem, 400);
+  text-decoration: none;
+  color: $blueLight;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h2, h3, h4, p {
+  a {
+    color: $white;
+  }
+}
+
+fieldset {
+  margin: $spacer-3 0;
+  border: 0;
+  outline: none;
+}
+
+img {
+  position: relative!important;
+  width: auto;
+  height: auto;
+}
+
+code {
+  display: block;
+  margin: $spacer-1 0;
+  font-size: 1.3rem;
+}
+
+label {
+  @include fontSize(1.2rem, bold);
+  display: block;
+  margin: $spacer-2 0;
+}
+
+mark {
+  display: inline-block;
+  margin: .2rem .3rem .2rem 0;
+  border-radius: .3rem;
+  background-color: transparentize($grayLighter, 0.5);
+  padding: .2rem .5rem;
+  color: $black;
+  font-size: 1.12rem;
+  font-weight: 500;
+
+  &.hasBorder {
+    border: 1px solid $gray;
+    background-color: transparent;
+  }
+
+  &.hasBgColor {
+    color: $white;
+
+    &-red {
+      background-color: $redDarker!important;
+    }
+
+    &-green {
+      background-color: $green!important;
+    }
+
+    &-darkmagenta {
+      background-color: $darkmagenta!important;
+    }
+  }
+}
+
+.isMediumDevice,
+.isLargeDevice {
+  display: none;
+}
+
+.hasOutline {
+  display: block;
+  margin: $spacer-3 0;
+  border-radius: .4rem;
+  outline: 1px solid transparentize($grayLight, .6);
+  padding: .5rem 1rem;
+}
+
+.error {
+  @include fontSize(1rem, 500);
+  color: $red;
+}
+
+.btn {
+  cursor: pointer;
+  margin: 0.1rem 0.2rem 0.1rem 0;
+  border-radius: .5rem;
+  border: 0;
+  padding: .55rem 1.6rem;
+  color: $white;
+  font-size: 1.2rem;
+
+  &-primary {
+    background-color: $grayLight;
+
+    &:hover {
+      background-color:$grayDarker;
+    }
+  }
+
+  &-info {
+    background-color: $green;
+
+    &:hover {
+      background-color: $greenDarker;
+    }
+  }
+
+  &-remove {
+    background-color: $red;
+
+    &:hover {
+      background-color: $redDarker;
+    }
+  }
+
+  &-submit {
+    background-color: $blueLight;
+
+    &:hover {
+      background-color:$blueDark;
+    }
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.display {
+  &-flex {
+    display: flex;
+    flex-flow: wrap;
+    align-content: center;
+    justify-content: center;
+  }
+
+  &-flex-inline {
+    display: inline-flex;
+  }
+
+  &-grid {
+    display: grid;
+  }
+
+  &-inline {
+    display: inline;
+  }
+
+  &-center {
+    margin: $spacer-11 20%;
+  }
+}
+
+@media #{$screen-md} {
+  h1 {
+    font-size: calc(1.3rem + 1.2vw);
+  }
+
+  .isMediumDevice {
+    display: block;
+  }
+}
+
+@media #{$screen-sm} {
+  h1 {
+    text-align: left;
+  }
+}
+

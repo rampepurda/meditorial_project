@@ -1,0 +1,29 @@
+@import "../../styles/spacing";
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+
+.primary {
+  margin: 0;
+
+  li {
+    @include fontSize(1.1rem,normal);
+    display: inline-block;
+    color: $grayLight;
+
+    a {
+      @include fontSize(1.1rem,normal);
+      color: $grayLight;
+    }
+
+    .isActive {
+      @include fontSize(1.2rem,500);
+      color: $blackLight;
+    }
+  }
+}
+
+
+
+
+

@@ -1,0 +1,122 @@
+@import "./breakpoints";
+@import "./spacing";
+@import "./mixins";
+
+$cols: 1 2 3 4 5 6 7 8 9 10 11 12;
+$colors: black blue darkblue darkmagenta darkred deeppink dodgerblue gold gray grayDarker green orange red silver white yellow;
+$displayValues: block flex grid inline inline-block inline-flex;
+
+@each $i in $cols {
+  .cols {
+    display: flex;
+  }
+
+  @media #{$screen-md} {
+    .cols {
+      display: block;
+    }
+
+    .col-m-#{$i} {
+      flex-basis: (8.33% * $i) !important;
+    }
+  }
+
+  .col-#{$i} {
+    flex-basis: (8.33% * $i);
+    padding: .5rem;
+
+    &.has-br {
+      border-right: 1px solid $grayLighter;
+    }
+  }
+
+  @if $i == 9 {
+    .col-9 {
+      padding: 1rem 1.5rem 1rem .5rem;
+    }
+
+    @media #{$screen-md} {
+      .col-9 {
+        //padding-top: 8rem;
+      }
+    }
+  }
+
+  .width-is-#{$i} {
+    width: (8.33% * $i);
+  }
+
+  ul {
+    &.hasVerticalPadding-#{$i} {
+      li {
+        padding-top: (1 * $i)px;
+        padding-bottom: (1 * $i)px;
+      }
+
+    }
+  }
+
+  @media #{$screen} {
+    .width-is-m-#{$i} {
+      width: (8.33% * $i);
+    }
+  }
+}
+
+@each $color in $colors {
+  .color-is-#{$color} {
+    color: $color;
+  }
+
+  .bg-color-is-#{$color} {
+    background-color: $color;
+  }
+
+  // isDARK_MODE
+  @if $color == darkmagenta {
+    .isDark {
+      .color-is-darkmagenta {
+        color: $red;
+      }
+    }
+  }
+
+  @if $color == grayDarker {
+    .isDark {
+      // Pagination
+      nav {
+        ul.Pagination_card__jawKB,
+        ul.Pagination_card__jawKB li {
+          border-color: transparentize($white, .5)
+        }
+      }
+    }
+  }
+}
+
+@each $display in $displayValues {
+   .display-#{$display} {
+     display: $display;
+   };
+
+  @if $display == flex {
+    .display-flex {
+      justify-content: left;
+      flex-flow: wrap;
+      gap: .8rem;
+    }
+  }
+
+  @if $display == grid {
+    .display-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+}
+
+@function size($num) {
+  @return $num;
+}
+
+

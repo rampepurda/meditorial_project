@@ -1,0 +1,11 @@
+@import "../../styles/variables";
+@import "../../styles/breakpoints";
+@import "../../styles/spacing";
+
+.cover {
+  margin-bottom: $spacer-4;
+  border-bottom: 1px solid $grayLighter;
+  padding: 0 1rem 1.5rem 0;
+}
+
+
